@@ -1,7 +1,7 @@
 const SUPABASE_URL = "https://cbyvvnugycxpzrjjudff.supabase.co";
 const SUPABASE_KEY = "sb_publishable_klVoAoN5C9xsO9pYflBwWQ_0sqxP8HL";
 
-const supabase = supabaseJs.createClient(
+const supabase = window.supabaseJs.createClient(
   SUPABASE_URL,
   SUPABASE_KEY
 );
@@ -55,3 +55,4 @@ async function loadScores() {
 
 loadScores();
 setInterval(loadScores, 5000);
+
