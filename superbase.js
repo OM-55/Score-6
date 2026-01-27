@@ -1,7 +1,7 @@
 const SUPABASE_URL = "https://cbyvvnugycxpzrjjudff.supabase.co";
-const SUPABASE_KEY = "sb_publishable_klVoAoN5C9xsO9pYflBwWQ_0sqxP8HL";
+const SUPABASE_KEY = "PASTE_YOUR_PUBLIC_ANON_KEY_HERE";
 
-const supabase = window.supabaseJs.createClient(
+const supabase = window.supabase.createClient(
   SUPABASE_URL,
   SUPABASE_KEY
 );
@@ -13,7 +13,7 @@ async function loadScores() {
     .order("game_id");
 
   if (error) {
-    console.error(error);
+    console.error("Supabase error:", error);
     return;
   }
 
@@ -23,27 +23,30 @@ async function loadScores() {
     );
     if (!card) return;
 
+    // STATUS
     const statusEl = card.querySelector(".game-status");
-    const scoresEl = card.querySelector(".scores");
-    const winnerEl = card.querySelector(".winner");
-
     statusEl.textContent = `STATUS: ${game.status}`;
 
+    // SCORES
+    const scoresBox = card.querySelector(".scores");
     if (game.show_score) {
-      scoresEl.innerHTML = `
+      scoresBox.innerHTML = `
         <div class="team">
-          <span>${game.team_a ?? "-"}</span>
+          <span>${game.team_a}</span>
           <span>${game.score_a ?? "-"}</span>
         </div>
         <div class="team">
-          <span>${game.team_b ?? "-"}</span>
+          <span>${game.team_b}</span>
           <span>${game.score_b ?? "-"}</span>
         </div>
       `;
+      scoresBox.style.display = "block";
     } else {
-      scoresEl.innerHTML = "";
+      scoresBox.style.display = "none";
     }
 
+    // WINNER
+    const winnerEl = card.querySelector(".winner");
     if (game.status === "ENDED" && game.winner) {
       winnerEl.textContent = `Winner: ${game.winner}`;
       winnerEl.classList.remove("hidden");
@@ -55,4 +58,3 @@ async function loadScores() {
 
 loadScores();
 setInterval(loadScores, 5000);
-
