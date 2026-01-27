@@ -2,101 +2,69 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Sports Scores</title>
+  <title>Live Sports Scores</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-<h1>Live Sports Scores</h1>
+<h1 class="title">Live Sports Scores</h1>
 
-<div class="games-container">
+<div class="grid">
 
-  <!-- Cricket Boys -->
-  <a href="cricket-boys.html" class="card-link">
-    <div class="game-card" data-game-id="1">
-      <h2 class="game-title">Cricket (Boys)</h2>
-      <p class="game-status">STATUS: —</p>
+  <div class="game-card" data-game-id="1">
+    <h2>Cricket (Boys)</h2>
+    <p class="game-status">STATUS: —</p>
+    <div class="scores"></div>
+    <p class="winner hidden"></p>
+  </div>
 
-      <div class="scores">
-        <div class="team"><span>—</span><span>—</span></div>
-        <div class="team"><span>—</span><span>—</span></div>
-      </div>
-
-      <p class="winner hidden">Winner: —</p>
-    </div>
-  </a>
-
-<a href="cricket-girls.html" class="card-link">
   <div class="game-card" data-game-id="2">
-    <h2 class="game-title">Cricket (Girls)</h2>
+    <h2>Cricket (Girls)</h2>
     <p class="game-status">STATUS: —</p>
-    <div class="scores">
-      <div class="team"><span>—</span><span>—</span></div>
-      <div class="team"><span>—</span><span>—</span></div>
-    </div>
-    <p class="winner hidden">Winner: —</p>
+    <div class="scores"></div>
+    <p class="winner hidden"></p>
   </div>
-</a>
 
-<a href="volleyball-boys.html" class="card-link">
   <div class="game-card" data-game-id="3">
-    <h2 class="game-title">Volleyball (Boys)</h2>
+    <h2>Volleyball (Boys)</h2>
     <p class="game-status">STATUS: —</p>
-    <div class="scores">
-      <div class="team"><span>—</span><span>—</span></div>
-      <div class="team"><span>—</span><span>—</span></div>
-    </div>
-    <p class="winner hidden">Winner: —</p>
+    <div class="scores"></div>
+    <p class="winner hidden"></p>
   </div>
-</a>
 
-<a href="throwball-girls.html" class="card-link">
   <div class="game-card" data-game-id="4">
-    <h2 class="game-title">Throwball (Girls)</h2>
+    <h2>Throwball (Girls)</h2>
     <p class="game-status">STATUS: —</p>
-    <div class="scores">
-      <div class="team"><span>—</span><span>—</span></div>
-      <div class="team"><span>—</span><span>—</span></div>
-    </div>
-    <p class="winner hidden">Winner: —</p>
+    <div class="scores"></div>
+    <p class="winner hidden"></p>
   </div>
-</a>
 
-<a href="relay.html" class="card-link">
   <div class="game-card" data-game-id="5">
-    <h2 class="game-title">Relay</h2>
+    <h2>Relay</h2>
     <p class="game-status">STATUS: —</p>
-    <div class="scores hidden"></div>
-    <p class="winner hidden">Winner: —</p>
+    <div class="scores"></div>
+    <p class="winner hidden"></p>
   </div>
-</a>
 
-<a href="tug-of-war.html" class="card-link">
   <div class="game-card" data-game-id="6">
-    <h2 class="game-title">Tug of War</h2>
+    <h2>Tug of War</h2>
     <p class="game-status">STATUS: —</p>
-    <div class="scores hidden"></div>
-    <p class="winner hidden">Winner: —</p>
+    <div class="scores"></div>
+    <p class="winner hidden"></p>
   </div>
-</a>
 
-<a href="musical-chairs.html" class="card-link">
   <div class="game-card" data-game-id="7">
-    <h2 class="game-title">Musical Chairs</h2>
+    <h2>Musical Chairs</h2>
     <p class="game-status">STATUS: —</p>
-    <div class="scores hidden"></div>
-    <p class="winner hidden">Winner: —</p>
+    <div class="scores"></div>
+    <p class="winner hidden"></p>
   </div>
-</a>
-
 
 </div>
 
-<!-- Supabase -->
+<!-- IMPORTANT -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="supabase.js"></script>
 
 </body>
 </html>
-
-
