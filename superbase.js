@@ -59,7 +59,6 @@ async function loadScores() {
 
     /* ---------- WINNER ---------- */
     const winnerEl = card.querySelector(".winner");
-
     if (game.status === "ENDED" && game.winner) {
       winnerEl.textContent = `Winner: ${game.winner}`;
       winnerEl.classList.remove("hidden");
@@ -72,5 +71,5 @@ async function loadScores() {
 /* ===============================
    AUTO REFRESH
    =============================== */
-loadScores();                 // initial load
-setInterval(loadScores, 5000); // refresh every 5 seconds
+loadScores();
+setInterval(loadScores, 5000);
