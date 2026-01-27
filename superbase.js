@@ -4,14 +4,13 @@
 const SUPABASE_URL = "https://cbyvvnugycxpzrjjudff.supabase.co";
 const SUPABASE_KEY = "sb_publishable_klVoAoN5C9xsO9pYflBwWQ_0sqxP8HL";
 
-/* IMPORTANT: use window.supabase (CDN v2) */
-const supabase = window.supabase.createClient(
+const supabase = supabaseJs.createClient(
   SUPABASE_URL,
   SUPABASE_KEY
 );
 
 /* ===============================
-   LOAD SCORES
+   LOAD ALL SCORES
    =============================== */
 async function loadScores() {
   const { data, error } = await supabase
@@ -42,15 +41,15 @@ async function loadScores() {
     /* ---------- SCORES ---------- */
     const scoresBox = card.querySelector(".scores");
 
-    if (game.show_score) {
+    if (game.show_score && game.team_a && game.team_b) {
       scoresBox.style.display = "block";
       scoresBox.innerHTML = `
         <div class="team">
-          <span>${game.team_a ?? "-"}</span>
+          <span>${game.team_a}</span>
           <span>${game.score_a ?? "-"}</span>
         </div>
         <div class="team">
-          <span>${game.team_b ?? "-"}</span>
+          <span>${game.team_b}</span>
           <span>${game.score_b ?? "-"}</span>
         </div>
       `;
@@ -73,5 +72,5 @@ async function loadScores() {
 /* ===============================
    AUTO REFRESH
    =============================== */
-loadScores();                  // initial load
+loadScores();                 // initial load
 setInterval(loadScores, 5000); // refresh every 5 seconds
