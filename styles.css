@@ -1,0 +1,147 @@
+/* ===== Global ===== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  min-height: 100vh;
+  color: #fff;
+  padding: 20px;
+}
+
+/* ===== Headings ===== */
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2.4rem;
+  letter-spacing: 1px;
+}
+
+/* ===== Layout ===== */
+.games-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* ===== Links ===== */
+.card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ===== Cards ===== */
+.game-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.game-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45);
+}
+
+/* Single page card */
+.game-card.single {
+  max-width: 500px;
+  margin: 40px auto;
+}
+
+/* ===== Titles ===== */
+.game-title {
+  margin: 0 0 12px;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+/* ===== Status ===== */
+.game-status {
+  margin-bottom: 15px;
+  font-weight: bold;
+  padding: 6px 12px;
+  border-radius: 20px;
+  display: inline-block;
+  font-size: 0.9rem;
+}
+
+/* Status colors */
+.game-status.live {
+  background: #ff3b3b;
+  color: #fff;
+}
+
+.game-status.upcoming {
+  background: #f4c430;
+  color: #000;
+}
+
+.game-status.ended {
+  background: #2ecc71;
+  color: #000;
+}
+
+/* ===== Scores ===== */
+.scores {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.team {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.25);
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+/* ===== Winner ===== */
+.winner {
+  margin-top: 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #2ecc71;
+}
+
+/* ===== Back Link ===== */
+.back-link {
+  display: inline-block;
+  margin-bottom: 20px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  padding: 8px 14px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  transition: background 0.2s ease;
+}
+
+.back-link:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* ===== Utilities ===== */
+.hidden {
+  display: none;
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.9rem;
+  }
+
+  .game-title {
+    font-size: 1.2rem;
+  }
+}
