@@ -4,7 +4,8 @@
 const SUPABASE_URL = "https://cbyvvnugycxpzrjjudff.supabase.co";
 const SUPABASE_KEY = "sb_publishable_klVoAoN5C9xsO9pYflBwWQ_0sqxP8HL";
 
-const supabase = supabaseJs.createClient(
+/* IMPORTANT: use window.supabase (CDN v2) */
+const supabase = window.supabase.createClient(
   SUPABASE_URL,
   SUPABASE_KEY
 );
@@ -45,11 +46,11 @@ async function loadScores() {
       scoresBox.style.display = "block";
       scoresBox.innerHTML = `
         <div class="team">
-          <span>${game.team_a}</span>
+          <span>${game.team_a ?? "-"}</span>
           <span>${game.score_a ?? "-"}</span>
         </div>
         <div class="team">
-          <span>${game.team_b}</span>
+          <span>${game.team_b ?? "-"}</span>
           <span>${game.score_b ?? "-"}</span>
         </div>
       `;
@@ -72,5 +73,5 @@ async function loadScores() {
 /* ===============================
    AUTO REFRESH
    =============================== */
-loadScores();                 // initial load
+loadScores();                  // initial load
 setInterval(loadScores, 5000); // refresh every 5 seconds
