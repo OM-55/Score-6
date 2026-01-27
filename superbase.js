@@ -29,7 +29,7 @@ async function loadScores() {
     );
     if (!card) return;
 
-    /* ---------- STATUS ---------- */
+    /* STATUS */
     const statusEl = card.querySelector(".game-status");
     statusEl.textContent = `STATUS: ${game.status}`;
     statusEl.className = "game-status";
@@ -38,7 +38,7 @@ async function loadScores() {
     if (game.status === "UPCOMING") statusEl.classList.add("upcoming");
     if (game.status === "ENDED") statusEl.classList.add("ended");
 
-    /* ---------- SCORES ---------- */
+    /* SCORES */
     const scoresBox = card.querySelector(".scores");
 
     if (game.show_score && game.team_a && game.team_b) {
@@ -57,7 +57,7 @@ async function loadScores() {
       scoresBox.style.display = "none";
     }
 
-    /* ---------- WINNER ---------- */
+    /* WINNER */
     const winnerEl = card.querySelector(".winner");
     if (game.status === "ENDED" && game.winner) {
       winnerEl.textContent = `Winner: ${game.winner}`;
@@ -68,8 +68,6 @@ async function loadScores() {
   });
 }
 
-/* ===============================
-   AUTO REFRESH
-   =============================== */
+/* AUTO REFRESH */
 loadScores();
 setInterval(loadScores, 5000);
