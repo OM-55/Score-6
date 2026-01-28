@@ -1,17 +1,17 @@
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
   background: #0e2a33;
   color: white;
+  font-family: Arial, sans-serif;
 }
 
 .title {
   text-align: center;
-  padding: 20px;
+  margin: 20px 0;
 }
 
 .grid {
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
   padding: 20px;
 }
@@ -22,20 +22,17 @@ body {
 }
 
 .game-card {
-  background: #24424c;
+  background: #2c4450;
   padding: 20px;
-  border-radius: 12px;
+  border-radius: 16px;
 }
 
 .game-status {
   margin: 10px 0;
+  font-weight: bold;
 }
 
-.scores {
-  margin-top: 10px;
-}
-
-.team {
+.scores .team {
   display: flex;
   justify-content: space-between;
 }
