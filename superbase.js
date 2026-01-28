@@ -1,7 +1,7 @@
 const SUPABASE_URL = "https://cbyvvnugycxpzrjjudff.supabase.co";
-const SUPABASE_KEY = "Psb_publishable_klVoAoN5C9xsO9pYflBwWQ_0sqxP8HL";
+const SUPABASE_KEY = "sb_publishable_klVoAoN5C9xsO9pYflBwWQ_0sqxP8HL";
 
-const supabase = window.supabase.createClient(
+const supabase = supabaseJs.createClient(
   SUPABASE_URL,
   SUPABASE_KEY
 );
@@ -23,12 +23,14 @@ async function loadScores() {
     );
     if (!card) return;
 
-    // STATUS
+    /* STATUS */
     const statusEl = card.querySelector(".game-status");
     statusEl.textContent = `STATUS: ${game.status}`;
 
-    // SCORES
+    /* SCORES */
     const scoresBox = card.querySelector(".scores");
+    scoresBox.innerHTML = "";
+
     if (game.show_score) {
       scoresBox.innerHTML = `
         <div class="team">
@@ -40,12 +42,9 @@ async function loadScores() {
           <span>${game.score_b ?? "-"}</span>
         </div>
       `;
-      scoresBox.style.display = "block";
-    } else {
-      scoresBox.style.display = "none";
     }
 
-    // WINNER
+    /* WINNER */
     const winnerEl = card.querySelector(".winner");
     if (game.status === "ENDED" && game.winner) {
       winnerEl.textContent = `Winner: ${game.winner}`;
@@ -58,4 +57,3 @@ async function loadScores() {
 
 loadScores();
 setInterval(loadScores, 5000);
-
