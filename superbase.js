@@ -1,5 +1,5 @@
 const SUPABASE_URL = "https://cbyvvnugycxpzrjjudff.supabase.co";
-const SUPABASE_KEY = "PASTE_YOUR_PUBLIC_ANON_KEY_HERE";
+const SUPABASE_KEY = "Psb_publishable_klVoAoN5C9xsO9pYflBwWQ_0sqxP8HL";
 
 const supabase = window.supabase.createClient(
   SUPABASE_URL,
@@ -58,3 +58,4 @@ async function loadScores() {
 
 loadScores();
 setInterval(loadScores, 5000);
+
